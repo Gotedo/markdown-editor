@@ -1,16 +1,22 @@
 # EasyMDE Changelog
+
 All notable changes to EasyMDE will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 <!-- ## [Unreleased] -->
+
 ## [2.18.0] - 2022-09-20
+
 ### Added
+
 - `toolbarButtonClassPrefix` option to resolve conflicts with Bootstrap classes ([#493]).
 
 ## [2.17.0] - 2022-08-20
+
 ### Added
+
 - Improved CSRF support for uploading images (Thanks to [@ZsgsDesign], [#394]).
 - Option to register an image preview handler: `imagesPreviewHandler` (Thanks to [@diego-gw], [#411]).
 - Support for `.webp` image formats (Thanks to [@sghoweri], [#417]).
@@ -25,6 +31,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Option to not overwrite the preview HTML by returning `null` from `previewRender` (Thanks to [@LevitatingOrange], [#471]).
 
 ### Fixed
+
 - Hyperlink doubling (Thanks to [@danielok1993], [#95]).
 - URLs with certain characters entered through prompts causing invalid markdown (Thanks to [@Zignature], [#393]).
 - Autofocus option not working properly ([#399]).
@@ -33,44 +40,57 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `hideIcons` option type (Thanks to [@LoyalPotato], [#488]).
 
 ### Changed
+
 - Editor now uses responsive font sizes (Thanks to [@vanillajonathan], [#452]).
 
 ### Documentation
+
 - Added several improvements to README (Thanks to [@vanillajonathan], [#436], [#438], [#440], [#444]).
 - Fixed typo in README (Thanks to [@kicksent], [#484]).
 - Added missing icon for `upload-image` in README (Thanks to [@hlf20010508], [#486]).
 
 ## [2.16.1] - 2022-01-14
+
 ### Fixed
+
 - Incorrect initial line and column count in status bar.
 - Security issue in `marked` dependency.
 
 ## [2.16.0] - 2022-01-11
+
 ### Added
+
 - `direction` option to enable RTL mode (Thanks to [@souljuse], [#358]).
 - `attributes` option to add custom attributes to toolbar buttons (Thanks to [@Zignature], [#388]).
 - `unorderedListStyle` option to change the character used for unordered lists (Thanks to [@Zignature], [#389]).
 
 ### Fixed
+
 - Image extension detection when extension is uppercase (Thanks to [@ukjinjang], [#357]).
 - Submenu actions not working in Chromium Browsers (Thanks to [@Offerel], [@robjean9] and [@kelvinj], [#364]).
 - Incorrect line and column count in status bar (Thanks to [@Zignature], [#384]).
 
 ## [2.15.0] - 2021-04-22
+
 ### Added
+
 - `imagePathAbsolute` option to return the absolute path when uploading an image (Thanks to [@wwsalmon], [#313]).
 
 ### Fixed
+
 - `ToolbarIcon` typings, added `icon` (Thanks to [@ChronosMasterOfAllTime], [#308]).
 - Image link extension when it was not the last part of the URL (Thanks to [@deerboy], [#311]).
 - Preview mode did not stay enabled when toggling to fullscreen (Thanks to [@smundro], [#316]).
 - Required typings not being included in `dependencies` (Thanks to [@marekdedic], [#322]).
 
 ## [2.14.0] - 2021-02-14
+
 ### Added
+
 - The `scrollbarStyle` option to change the style of the scrollbar (Thanks to [@danice], [#250]).
 
 ### Fixed
+
 - Issues with images not displaying correctly in the preview screen (Thanks to [@ivictbor], [#253]).
 - An error when both `sideBySideFullscreen` and `status` were set to `false` (Thanks to [@joahim], [#272]).
 - Editor trying to display non-image files (Thanks to [@Juupaa], [#277])
@@ -82,181 +102,241 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Security issue in `marked` dependency (Thanks to [@dependabot], [#298]).
 
 ## [2.13.0] - 2020-11-11
+
 ### Added
+
 - CodeMirror autorefresh plugin and autoRefresh option (Thanks to [@mbolli], [#249]).
 - `lineNumbers` option to display line numbers in the editor (Thanks to [@nhymxu], [#267]).
 
 ### Fixed
+
 - CSS scoping issues when the editor is used in combination with other CodeMirror instances ([#252]).
 
 ## [2.12.1] - 2020-10-06
+
 ### Changed
+
 - Set `previewImagesInEditor` option to `false` by default ([#251]).
 
 ## [2.12.0] - 2020-09-29
+
 ### Added
+
 - `this` context in imageUploadFunction (Thanks to [@JoshuaLicense], [#225]).
 - `previewImagesInEditor` option to display images in editor mode (Thanks to [@ivictbor], [#235]).
 - `overlayMode` options to supply an additional codemirror mode (Thanks to [@czynskee], [#244]).
 
 ### Fixed
+
 - Corrected default size units from `b,Kb,Mb` to ` B, KB, MB` ([#239]).
 - Max height less than min height (Thanks to [@nick-denry], [#222]).
 - toTextArea issue (Thanks to [@nick-denry], [#223]).
 - Error when updateStatusBar was called during image upload, but the status bar is disabled (Thanks to [@JoshuaLicense], [#224]).
 
 ## [2.11.0] - 2020-07-16
+
 ### Added
+
 - Support for Node.js 14.
 - Preview without fullscreen (Thanks to [@nick-denry], [#196]).
 
 ### Fixed
+
 - Fix cursor displayed position on activity (Thanks to [@firm1], [#184]).
 - Checkboxes always have bullets in front of them ([#136]).
 - Save the text only when modifying the content of the easymde instance (Thanks to [@firm1], [#181]).
 
 ## [2.10.1] - 2020-04-06
+
 ### Fixed
+
 - Typescript error when entering certain strings for toolbar buttons ([#178]).
 
 ## [2.10.0] - 2020-04-02
+
 ### Added
+
 - `inputStyle` and `nativeSpellcheck` options to manage the native language of the browser (Thanks to [@firm1], [#143]).
 - Group buttons in drop-down lists by adding a sub-option `children` for the items in the toolbar (Thanks to [@firm1], [#141]).
 - `sanitizerFunction` option to allow custom HTML sanitizing in the markdown preview (Thanks to [@adamb70], [#147]).
 - Time formatting and custom text options for the autosave message (Thanks to [@dima-bzz], [#170]).
 
 ### Changed
+
 - Delay before assuming that submit of the form as failed is `autosave.submit_delay` instead of `autosave.delay` (Thanks to [@Situphen], [#139]).
 - Add `watch` task for gulp (Thanks to [@A-312], [#150]).
 
 ### Fixed
+
 - Issue with Marked when using IE11 and webpack (Thanks to [@felipefdl], [#169]).
 - Updated codemirror to version 5.52.2 (Thanks to [@A-312], [#173]).
 - Editor displaying on top of other elements on a webpage (Thanks to [@StefKors], [#175]).
 
 ## [2.9.0] - 2020-01-13
+
 ### Added
+
 - Missing minHeight option in type definition (Thanks to [@t49tran], [#123]).
 - Other missing type definitions ([#126]).
 
 ### Changed
+
 - The editor will remove its saved contents when the editor is emptied, allowing to reload a default value (Thanks to [@Situphen], [#132]).
 
 ## [2.8.0] - 2019-08-20
+
 ### Added
+
 - Upload images functionality (Thanks to [@roipoussiere] and [@JeroenvO], [#71], [#101]).
 - Allow custom image upload function (Thanks to [@sperezp], [#106]).
 - More polish to the upload images functionality (Thanks to [@jfly], [#109]).
 - Improved React compatibility (Thanks to [@richtera], [#97]).
 
 ### Fixed
+
 - Missing link in dist file header.
 
 ## [2.7.0] - 2019-07-13
+
 ### Added
+
 - `previewClass` option for overwriting the preview screen class ([#99]).
 
 ### Fixed
+
 - Updated dependencies to resolve potential security issue.
 - Resolved small code style issues shown by new eslint rules.
 
 ## [2.6.1] - 2019-06-17
+
 ### Fixed
+
 - Error when toggling between ordered and unordered lists (Thanks to [@roryok], [#93]).
 - Keyboard shortcuts for custom actions not working (Thanks to [@ysykzheng], [#75]).
 
 ## [2.6.0] - 2019-04-15
+
 ### Added
+
 - Contributing guide (Thanks to [@roipoussiere], [#54]).
 - Issue templates.
 - Standardized changelog file.
 
 ### Changed
+
 - Finish rewrite of README (Thanks to [@roipoussiere], [#54]).
 - Image and link prompt fill with "https://" by default.
 - Link to markdown guide to <https://www.markdownguide.org/basic-syntax/>.
 
 ### Fixed
+
 - Backwards compatibility in the API with SimpleMDE 1.0.0 ([#41]).
 - Automatic publish of master branch to `@next`
 
 ### Removed
+
 - Distribution files from source-control.
 
 ## [2.5.1] - 2019-01-17
+
 ### Fixed
+
 - `role="button"` needed to be `type="button"` ([#45]).
 
 ## [2.5.0] - 2019-01-17
+
 ### Added
+
 - Typescript support (Thanks to [@FranklinWhale], [#44]).
 - `role="button"` to toolbar buttons ([#38]).
 
 ### Fixed
+
 - Eraser icon not working with FontAwesome 5.
 
 ## [2.4.2] - 2018-11-09
+
 ### Added
+
 - Node.js 11 support.
 
 ### Fixed
+
 - Header button icons not showing sub-icons with FontAwesome 5.
 - Inconsistent autosave behaviour when submitting a form (Thanks to [@Furgas] and [@adamb70], [#31]).
 
 ## [2.4.1] - 2018-10-15
+
 ### Added
+
 - `fa-redo` class to redo button for FA5 compatibility (Thanks to [@Summon528], [#27]).
 
 ## [2.4.0] - 2018-10-15
+
 ### Added
+
 - Theming support (Thanks to [@LeviticusMB], [#17]).
 - onToggleFullscreen event hook (Thanks to [@n-3-0], [#16]).
 
 ### Fixed
+
 - Fullscreen not working with `toolbar: false` (Thanks to [@aphitiel], [#19]).
 
 ## [2.2.2] - 2019-07-03
+
 ### Fixed
+
 - Automatic publish only publishing tags.
 
 ## [2.2.1] - 2019-06-29
+
 ### Changed
+
 - Attempt automatic publish `@next` version on npm.
 - Links in the preview window will open in a new tab by default.
 
 ### Fixed
+
 - Multi-text select issue by disabling multi-select in the editor ([#10]).
 - `main` file in package.json (Thanks to [@sne11ius], [#11]).
 
 ## [2.0.1] - 2018-05-13
+
 ### Changed
+
 - Rewrote part of the documentation for EasyMDE.
 - Updated gulp to version 4.0.0.
 
 ### Fixed
+
 - Icons for `heading-smaller`, `heading-bigger`, `heading-1`, `heading-2` and `heading-3` not showing ([#9]).
 
 ## [2.0.0] - 2018-04-23
+
 Project forked from [SimpleMDE](https://github.com/sparksuite/simplemde-markdown-editor)
 
 ### BREAKING CHANGES
+
 - Dropped Bower support.
 - Dropped support for older Node.js versions.
 
 ### Added
+
 - FontAwesome 5 support.
 - Support for newer Node.js versions.
 
 ### Changed
+
 - Packages are now version-locked.
 - Simplified build script.
 - Markdown guide button is no longer disabled in preview mode.
 
 ### Fixed
+
 - Cursor not always showing in "text" mode over the edit field
 
 <!-- Linked issues -->
+
 [#493]: https://github.com/Ionaru/easy-markdown-editor/issues/493
 [#478]: https://github.com/Ionaru/easy-markdown-editor/issues/478
 [#399]: https://github.com/Ionaru/easy-markdown-editor/issues/399
@@ -278,6 +358,7 @@ Project forked from [SimpleMDE](https://github.com/sparksuite/simplemde-markdown
 [#9]: https://github.com/Ionaru/easy-markdown-editor/issues/9
 
 <!-- Linked PRs -->
+
 [#492]: https://github.com/Ionaru/easy-markdown-editor/pull/492
 [#488]: https://github.com/Ionaru/easy-markdown-editor/pull/488
 [#486]: https://github.com/Ionaru/easy-markdown-editor/pull/486
@@ -362,6 +443,7 @@ Project forked from [SimpleMDE](https://github.com/sparksuite/simplemde-markdown
 [#19]: https://github.com/Ionaru/easy-markdown-editor/pull/19
 
 <!-- Linked users -->
+
 [@dependabot]: https://github.com/dependabot
 [@wwsalmon]: https://github.com/wwsalmon
 [@ChronosMasterOfAllTime]: https://github.com/ChronosMasterOfAllTime
@@ -419,6 +501,7 @@ Project forked from [SimpleMDE](https://github.com/sparksuite/simplemde-markdown
 [@sghoweri]: https://github.com/sghoweri
 
 <!-- Linked versions -->
+
 [Unreleased]: https://github.com/Ionaru/easy-markdown-editor/compare/2.18.0...HEAD
 [2.18.0]: https://github.com/Ionaru/easy-markdown-editor/compare/2.17.0...2.18.0
 [2.17.0]: https://github.com/Ionaru/easy-markdown-editor/compare/2.16.1...2.17.0
