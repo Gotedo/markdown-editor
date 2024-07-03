@@ -63,6 +63,7 @@
     "cypress:run": "cypress run",
     "e2e": "gulp && npm run cypress:lint && npm run cypress:run",
     "test:types": "tsc --project types/tsconfig.json",
+    "preversion": "gulp",
     "release": "np",
     "format": "prettier --write ."
   },
