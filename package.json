@@ -1,6 +1,6 @@
 {
   "name": "@gotedo/markdown-editor",
-  "version": "2.19.3",
+  "version": "2.19.4",
   "description": "A simple, beautiful, and embeddable JavaScript Markdown editor that easy to use. Features include autosaving and spell checking.",
   "files": [
     "dist/**/*",
