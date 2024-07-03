@@ -46,24 +46,8 @@ The editor is entirely customizable, from theming to toolbar buttons and javascr
 
 ## Install EasyMDE
 
-Via [npm](https://www.npmjs.com/package/easymde):
-
 ```
-npm install easymde
-```
-
-Via the _UNPKG_ CDN:
-
-```html
-<link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css" />
-<script src="https://unpkg.com/easymde/dist/easymde.min.js"></script>
-```
-
-Or _jsDelivr_:
-
-```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.css" />
-<script src="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.js"></script>
+npm install @gotedo/markdown-editor
 ```
 
 ## How to use
@@ -153,6 +137,15 @@ Use `easyMDE.value(val)` to set the content of the editor:
 - **placeholder**: If set, displays a custom placeholder message.
 - **previewClass**: A string or array of strings that will be applied to the preview screen when activated. Defaults to `"editor-preview"`.
 - **previewRender**: Custom function for parsing the plaintext Markdown and returning HTML. Used when user previews.
+  ```javascript
+  {
+    previewRender: function (markdown, previewNode, callback) {
+      setTimeout(() => {
+        callback(md.render(markdown), previewNode);
+      }, 100);
+    },
+  }
+  ```
 - **promptURLs**: If set to `true`, a JS alert window appears asking for the link or image URL. Defaults to `false`.
 - **promptTexts**: Customize the text used to prompt for URLs.
   - **image**: The text to use when prompting for an image's URL. Defaults to `URL of the image:`.
