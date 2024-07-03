@@ -7,12 +7,28 @@
     <title>Example / Preview</title>
     <link rel="stylesheet" href="../dist/easymde.min.css" />
     <script src="../dist/easymde.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/13.0.1/markdown-it.min.js"
+      integrity="sha512-SYfDUYPg5xspsG6OOpXU366G8SZsdHOhqk/icdrYJ2E/WKZxPxze7d2HD3AyXpT7U22PZ5y74xRpqZ6A2bJ+kQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
   </head>
 
   <body>
     <textarea></textarea>
     <script>
-      const easyMDE = new EasyMDE();
+      window.onload = function () {
+        var md = window.markdownit();
+
+        const easyMDE = new EasyMDE({
+          previewRender: function (markdown, previewNode, callback) {
+            setTimeout(() => {
+              callback(md.render(markdown), previewNode);
+            }, 100);
+          },
+        });
+      };
     </script>
   </body>
 </html>

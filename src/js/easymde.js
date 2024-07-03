@@ -1055,9 +1055,11 @@ function toggleSideBySide(editor) {
   }
 
   var sideBySideRenderingFunction = function () {
-    var newValue = editor.options.previewRender(editor.value(), preview);
-    if (newValue != null) {
-      preview.innerHTML = newValue;
+    if (!hasCustomPreviewRenderFn) {
+      var newValue = editor.options.previewRender(editor.value(), preview);
+      setPreviewResult(newValue, preview);
+    } else {
+      editor.options.previewRender(editor.value(), preview, setPreviewResult);
     }
   };
 
@@ -1066,10 +1068,13 @@ function toggleSideBySide(editor) {
   }
 
   if (useSideBySideListener) {
-    var newValue = editor.options.previewRender(editor.value(), preview);
-    if (newValue != null) {
-      preview.innerHTML = newValue;
+    if (!hasCustomPreviewRenderFn) {
+      var newValue = editor.options.previewRender(editor.value(), preview);
+      setPreviewResult(newValue, preview);
+    } else {
+      editor.options.previewRender(editor.value(), preview, setPreviewResult);
     }
+
     cm.on('update', cm.sideBySideRenderingFunction);
   } else {
     cm.off('update', cm.sideBySideRenderingFunction);
@@ -1130,9 +1135,22 @@ function togglePreview(editor) {
     }
   }
 
-  var preview_result = editor.options.previewRender(editor.value(), preview);
-  if (preview_result !== null) {
-    preview.innerHTML = preview_result;
+  if (!hasCustomPreviewRenderFn) {
+    var preview_result = editor.options.previewRender(editor.value(), preview);
+    setPreviewResult(preview_result, preview);
+  } else {
+    editor.options.previewRender(editor.value(), preview, setPreviewResult);
+  }
+}
+
+/**
+ *
+ * @param {string | null} html Rendered HTML string
+ * @param {ChildNode} preview
+ */
+function setPreviewResult(html, preview) {
+  if (html !== null) {
+    preview.innerHTML = html;
   }
 }
 
@@ -1802,6 +1820,8 @@ var errorMessages = {
   importError: 'Something went wrong when uploading the image #image_name#.',
 };
 
+var hasCustomPreviewRenderFn = false;
+
 /**
  * Interface of EasyMDE.
  */
@@ -1890,6 +1910,8 @@ function EasyMDE(options) {
       // Note: "this" refers to the options object
       return this.parent.markdown(plainText);
     };
+  } else {
+    hasCustomPreviewRenderFn = true;
   }
 
   // Set default options for parsing config
@@ -3033,9 +3055,11 @@ EasyMDE.prototype.value = function (val) {
     if (this.isPreviewActive()) {
       var wrapper = cm.getWrapperElement();
       var preview = wrapper.lastChild;
-      var preview_result = this.options.previewRender(val, preview);
-      if (preview_result !== null) {
-        preview.innerHTML = preview_result;
+      if (!hasCustomPreviewRenderFn) {
+        var preview_result = this.options.previewRender(val, preview);
+        setPreviewResult(preview_result, preview);
+      } else {
+        this.options.previewRender(val, preview, setPreviewResult);
       }
     }
     return this;
