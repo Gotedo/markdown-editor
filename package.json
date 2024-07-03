@@ -14,6 +14,14 @@
     "javascript",
     "fontawesome"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gotedo/markdown-editor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Gotedo/markdown-editor/issues"
+  },
+  "homepage": "https://github.com/Gotedo/markdown-editor#readme",
   "main": "src/js/easymde.js",
   "types": "types/easymde.d.ts",
   "license": "MIT",
@@ -47,7 +55,6 @@
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0"
   },
-  "repository": "github:Gotedo/markdown-editor",
   "scripts": {
     "prepare": "gulp && (husky install || true)",
     "test": "npm run lint && npm run test:types && npm run e2e",
@@ -64,7 +71,7 @@
     "yolo": true,
     "contents": ".",
     "anyBranch": false,
-    "publish": false,
+    "publish": true,
     "branch": "main",
     "releaseDraft": true,
     "message": "chore: bump version to %s 🚀"
